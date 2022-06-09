@@ -1,0 +1,52 @@
+.navbar-brand {
+    color: #f7ff93 !important;
+}
+
+.navbar-nav.ms-auto li a {
+    color: #f7ff93 !important;
+}
+
+*{
+    scroll-behavior: smooth;
+}
+
+.tag-card{
+    display: flex;
+}
+
+.col{
+    margin: 2rem;
+    border-radius: 20px;
+}
+
+.card{
+    color: #005555;
+    align-items: center;
+    padding: 10px;
+    background-color: #A1E3D8;
+}
+
+.btn {
+    color: #005555;
+    background-color: #f7ff93;
+}
+
+.content {
+    background-color: #069A8E;
+}
+
+footer {
+    text-align: center;
+    color: #f7ff93;
+    background-color: #005555;
+    height: 70px;
+}
+
+footer h5 {
+    padding-top: 10px;
+}
+
+
+.carousel-caption {
+    color: #005555;
+}

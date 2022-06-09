@@ -1,57 +1,7 @@
 <?php
+require 'functions.php';
 
-$mahasiswa = [
-    [
-        "nama" => "Zidane",
-        "npm" => "213040085",
-        "email" => "ahmadzidane@gmail.com",
-        "jurusan" => "Teknik Informatika",
-        "gambar" => "hog.jpg",
-        "angka" => "1"
-    ],
-    [
-        "nama" => "Faturrahman",
-        "npm" => "213040323",
-        "email" => "fatur@gmail.com",
-        "jurusan" => "Teknik Industri",
-        "gambar" => "hog.jpg",
-        "angka" => "2"
-    ],
-    [
-        "nama" => "Ahmad",
-        "email" => "ahmad@gmail.com",
-        "jurusan" => "Teknik Kimia",
-        "npm" => "2130234234",
-        "gambar" => "hog.jpg",
-        "angka" => "3"
-    ],
-    [
-        "nama" => "Khair",
-        "email" => "khairdd@gmail.com",
-        "jurusan" => "Teknik kedokteran",
-        "npm" => "213453663",
-        "gambar" => "hog.jpg",
-        "angka" => "4"
-    ],
-    [
-        "nama" => "Abdul",
-        "email" => "abdla@gmail.com",
-        "jurusan" => "Teknik seni",
-        "npm" => "21303123",
-        "gambar" => "hog.jpg",
-        "angka" => "5",
-
-    ],
-    [
-        "nama" => "Jamal",
-        "email" => "jamal@gmail.com",
-        "jurusan" => "Teknik hukum",
-        "npm" => "213034254",
-        "gambar" => "hog.jpg",
-        "angka" => "6"
-    ]
-];
-
+$mahasiswa = query("SELECT * FROM  mahasiswa");
 ?>
 
 
@@ -76,27 +26,32 @@ $mahasiswa = [
     <div class="container">
         <h1>Daftar Mahasiwa</h1>
 
+        <a href="tambah.php" class="btn btn-primary">Tambah Data Mahasiswa</a>
+
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col"></th>
+                    <th scope="col">No</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Nama</th>
+                    <th scope="col">NPM</th>
+                    <th scope="col">Jurusan</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($mahasiswa as $mhs) { ?>
+                <?php $i=1; foreach ($mahasiswa as $mhs) { ?>
                     <tr>
-                        <th scope="row"> <?php echo $mhs["angka"]; ?></th>
+                        <th scope="row"><?= $i++;?></th>
                         <td>
                             <img src="img/<?php echo $mhs["gambar"]; ?>" height="50" class="rounded-circle">
                         </td>
                         <td><?php echo $mhs["nama"] ?></td>
+                        <td><?php echo $mhs["npm"] ?></td>
+                        <td><?php echo $mhs["jurusan"] ?></td>
                         <td>
                             <a href="" class="btn badge bg-warning">Edit</a>
                             <a href="" class="btn badge bg-danger">Delete</a>
-                            <a href="kuliah_latihan3.php?nama=<?= $mhs["nama"]; ?>" class="btn badge bg-info">Info</a>
                         </td>
                     </tr>
                 <?php } ?>

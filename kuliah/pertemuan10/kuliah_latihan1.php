@@ -1,57 +1,15 @@
 <?php
+// Koneksi ke database
+$conn = mysqli_connect('localhost', 'root', '', 'pw2022_c_213040081') or die ;
+// Query ke tabel mahasiswa
+$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
+//siapkan data $mahasiswa
+$rows = [];
+while($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+}
 
-$mahasiswa = [
-    [
-        "nama" => "Zidane",
-        "npm" => "213040085",
-        "email" => "ahmadzidane@gmail.com",
-        "jurusan" => "Teknik Informatika",
-        "gambar" => "hog.jpg",
-        "angka" => "1"
-    ],
-    [
-        "nama" => "Faturrahman",
-        "npm" => "213040323",
-        "email" => "fatur@gmail.com",
-        "jurusan" => "Teknik Industri",
-        "gambar" => "hog.jpg",
-        "angka" => "2"
-    ],
-    [
-        "nama" => "Ahmad",
-        "email" => "ahmad@gmail.com",
-        "jurusan" => "Teknik Kimia",
-        "npm" => "2130234234",
-        "gambar" => "hog.jpg",
-        "angka" => "3"
-    ],
-    [
-        "nama" => "Khair",
-        "email" => "khairdd@gmail.com",
-        "jurusan" => "Teknik kedokteran",
-        "npm" => "213453663",
-        "gambar" => "hog.jpg",
-        "angka" => "4"
-    ],
-    [
-        "nama" => "Abdul",
-        "email" => "abdla@gmail.com",
-        "jurusan" => "Teknik seni",
-        "npm" => "21303123",
-        "gambar" => "hog.jpg",
-        "angka" => "5",
-
-    ],
-    [
-        "nama" => "Jamal",
-        "email" => "jamal@gmail.com",
-        "jurusan" => "Teknik hukum",
-        "npm" => "213034254",
-        "gambar" => "hog.jpg",
-        "angka" => "6"
-    ]
-];
-
+$mahasiswa = $rows;
 ?>
 
 
@@ -79,20 +37,24 @@ $mahasiswa = [
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col"></th>
+                    <th scope="col">No</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Nama</th>
+                    <th scope="col">NPM</th>
+                    <th scope="col">Jurusan</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($mahasiswa as $mhs) { ?>
+                <?php $i=1; foreach ($mahasiswa as $mhs) { ?>
                     <tr>
-                        <th scope="row"> <?php echo $mhs["angka"]; ?></th>
+                        <th scope="row"><?= $i++;?></th>
                         <td>
                             <img src="img/<?php echo $mhs["gambar"]; ?>" height="50" class="rounded-circle">
                         </td>
                         <td><?php echo $mhs["nama"] ?></td>
+                        <td><?php echo $mhs["npm"] ?></td>
+                        <td><?php echo $mhs["jurusan"] ?></td>
                         <td>
                             <a href="" class="btn badge bg-warning">Edit</a>
                             <a href="" class="btn badge bg-danger">Delete</a>
