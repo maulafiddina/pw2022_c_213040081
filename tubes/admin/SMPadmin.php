@@ -93,6 +93,11 @@ if(isset($_GET["cari"])) {
 
     </div>
 
+    <div class="container">
+        <button class="hidden btn btn-danger mt-3" onclick="window.print()">
+        <i class="bi bi-journal-plus">Cetak PDF</i>
+    </div>
+
 
 
 
