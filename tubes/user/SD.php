@@ -56,7 +56,7 @@ if(isset($_GET["cari"])) {
 
         <form action="" method="get" class="mt-4">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" name="keyword" placeholder="Masuka Keyword Pencarian" autocomplete="off">
+                <input type="text" class="form-control" name="keyword" placeholder="Masukan Judul Buku" autocomplete="off">
                 <button class="btn btn-primary" type="submit" name="cari">Cari!</button>
             </div>
         </form>
